@@ -12,9 +12,6 @@ import { FormComponentInterface, SubmitData } from 'src/@types';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, FormComponentInterface {
-  @Output() onRegisterClick: EventEmitter<Boolean> = new EventEmitter<
-    Boolean
-  >();
   @Output() onSubmit: EventEmitter<SubmitData> = new EventEmitter<SubmitData>();
 
   url: string = '/auth';
@@ -70,10 +67,6 @@ export class LoginComponent implements OnInit, FormComponentInterface {
   ) {}
 
   ngOnInit(): void {}
-
-  isRegister() {
-    this.onRegisterClick.emit(true);
-  }
 
   loginWithSocial(socialProvider: 'facebook' | 'instagram' | 'twitter') {
     this.membershipService.loginWithSocial(socialProvider);

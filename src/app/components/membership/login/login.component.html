@@ -24,47 +24,6 @@
       </div>
     </div>
     <h3 class="sub-heading">Simple login</h3>
-    <!-- OLD FORM-->
-    <!-- <form [formGroup]="loginForm">
-      <div class="simple-auth input-group">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-primary" type="button">
-            Username
-          </button>
-        </div>
-        <input class="form-control" type="text" formControlName="username" />
-        <div class="form-error" *ngIf="formErrors.username">
-          {{ formErrors.username }}
-        </div>
-      </div>
-      <div class="simple-auth input-group">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-primary" type="button">
-            Password
-          </button>
-        </div>
-        <input
-          class="form-control"
-          type="password"
-          formControlName="password"
-        />
-        <div class="form-error" *ngIf="formErrors.password">
-          {{ formErrors.password }}
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary submit" (click)="submit()">
-        Submit
-      </button>
-    </form> -->
-    <!-- NEW FORM -->
-    <!-- <form [formGroup]="form">
-      <formly-form [model]="model" [fields]="fields" [form]="form">
-        <button type="submit" class="btn btn-primary submit" (click)="submit()">
-          Submit
-        </button>
-      </formly-form>
-    </form> -->
-    <!-- LATEST VERSION -->
     <!--  Try to do this in a better way without all this props passed  -->
     <app-form [form]="form" [model]="model" [fields]="fields" [submit]="submit">
     </app-form>
@@ -72,11 +31,7 @@
   <div class="footer">
     <p>You haven't an account?</p>
     <span>
-      <a
-        routerLink="./register"
-        routerLinkActive="active"
-        class="link"
-        (click)="isRegister()"
+      <a routerLink="../register" routerLinkActive="active" class="link"
         >Create new one</a
       >
     </span>
