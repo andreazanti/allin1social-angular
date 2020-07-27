@@ -1,0 +1,25 @@
+:host {
+  .register {
+    height: 100%;
+    .heading {
+      height: 10%;
+    }
+    .body {
+      height: 70%;
+      position: relative;
+      .submit {
+        width: 100%;
+      }
+      .inner-body {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        width: 100%;
+      }
+      .footer {
+        text-align: center;
+      }
+    }
+  }
+}

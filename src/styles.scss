@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+// variables section
+$primary-color: #007bff;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+h3 {
+  color: grey;
+}
+
+.link {
+  cursor: pointer;
+  color: $primary-color !important;
+}

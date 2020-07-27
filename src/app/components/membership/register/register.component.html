@@ -1,0 +1,50 @@
+<form class="register">
+  <div class="heading">
+    <h2>Register</h2>
+  </div>
+  <div class="body">
+    <div class="inner-body">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-primary" type="button">
+            Username
+          </button>
+        </div>
+        <input
+          class="form-control"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+        />
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-primary" type="button">
+            Password
+          </button>
+        </div>
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary submit" (click)="register()">
+        Submit
+      </button>
+    </div>
+  </div>
+  <div class="footer">
+    <p>You have already an account?</p>
+    <span>
+      <a
+        class="link"
+        routerLink="./login"
+        routerLinkActive="active"
+        (click)="isLogin()"
+        >Login</a
+      >
+    </span>
+  </div>
+</form>

@@ -1,0 +1,7 @@
+<div class="form-container" [ngSwitch]="isLogin">
+  <app-login *ngSwitchCase="true" (onRegisterClick)="getRegister()"></app-login>
+  <app-register
+    *ngSwitchCase="false"
+    (onLoginClick)="getLogin()"
+  ></app-register>
+</div>
