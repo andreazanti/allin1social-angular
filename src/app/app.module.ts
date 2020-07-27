@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // ########### PAGES ###############
 import { AuthPageComponent } from './pages/auth/auth-page.component';
-import { DashboardPageComponent } from './pages/dashboard/dashboard-page.component';
+import { DashboardPageComponent } from './root/dashboard-page.component';
 import { HomePageComponent } from './pages/home/home-page.component';
 
 // ############ COMPONENTS ####################

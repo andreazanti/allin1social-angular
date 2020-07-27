@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthPageComponent } from './pages/auth/auth-page.component';
-import { DashboardPageComponent } from './pages/dashboard/dashboard-page.component';
+import { DashboardPageComponent } from './root/dashboard-page.component';
 import { LoginComponent } from './components/membership/login/login.component';
 import { RegisterComponent } from './components/membership/register/register.component';
 
