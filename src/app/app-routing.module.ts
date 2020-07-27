@@ -11,11 +11,9 @@ const routes: Routes = [
   {
     path: 'membership',
     component: AuthPageComponent,
-    // loadChildren: () =>
-    //   import('./app-membership-routing.module').then(
-    //     (m) => m.MembershipRoutingModule
-    //   ),
     children: [
+      // Set the default route
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'login',
         component: LoginComponent,

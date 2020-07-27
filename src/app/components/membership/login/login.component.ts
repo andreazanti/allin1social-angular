@@ -72,5 +72,8 @@ export class LoginComponent implements OnInit, FormComponentInterface {
     this.membershipService.loginWithSocial(socialProvider);
   }
 
-  submit() {}
+  submit() {
+    console.log('after submit');
+    this.router.navigate(['/dashboard']);
+  }
 }

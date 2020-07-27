@@ -25,7 +25,14 @@
     </div>
     <h3 class="sub-heading">Simple login</h3>
     <!--  Try to do this in a better way without all this props passed  -->
-    <app-form [form]="form" [model]="model" [fields]="fields" [submit]="submit">
+    <!-- Transform this in a sort of placeholder like router-outlet -->
+    <!-- Get the reference to parent component inside app-form and get all the useful props -->
+    <app-form
+      [form]="form"
+      [model]="model"
+      [fields]="fields"
+      [submit]="submit.bind(this)"
+    >
     </app-form>
   </div>
   <div class="footer">
