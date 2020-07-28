@@ -5,6 +5,7 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard-page.compone
 import { LoginComponent } from './components/membership/login/login.component';
 import { RegisterComponent } from './components/membership/register/register.component';
 import { HomePageComponent } from './pages/home/home-page.component';
+import { LoggedInUser } from './guards/LoggedInUser';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
+    canActivate: [LoggedInUser],
     component: DashboardPageComponent,
   },
   //TODO: define wildcard aka page not found ( this routes matches all the url if there wasn'nt previously match)

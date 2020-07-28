@@ -32,6 +32,8 @@ import { MembershipService } from './components/membership/membership.service';
 // ############ DIRECTIVES ###################### d
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { LoggedInUser } from './guards/LoggedInUser';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -63,8 +65,10 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
   providers: [
     LoaderService,
     MembershipService,
+    LoggedInUser,
     { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true },
     NgbActiveModal,
+    UserService,
   ],
   bootstrap: [AppComponent],
 })
