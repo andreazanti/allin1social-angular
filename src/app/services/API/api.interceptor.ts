@@ -4,7 +4,6 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError, OperatorFunction } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -27,7 +26,10 @@ export class APIInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     // Show the loader at every request made until request is handled
     this.loader.show();
-    const reqClone = req.clone({ url: `${this.BASE_URL}${req.url}` });
+    const reqClone = req.clone({
+      url: `${this.BASE_URL}${req.url}`,
+      withCredentials: true,
+    });
     // We call finalize only to transform the simple functon into an observable
     // So we can do observable1.pipe(observable2)
 
