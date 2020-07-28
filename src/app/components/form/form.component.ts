@@ -2,6 +2,7 @@ import { FormService } from './form.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { MessageService } from '../message/message.service';
 
 @Component({
   selector: 'app-form',
@@ -25,13 +26,16 @@ export class FormComponent implements OnInit {
   @Input()
   submit: Function;
 
-  constructor(private formService: FormService) {}
+  constructor(
+    private formService: FormService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.form.status);
-
+    console.log(this.url);
+    console.log(this.form);
     if (this.form.status === 'VALID') {
       const payload = {};
       Object.keys(this.form.controls).forEach((key, index) => {
@@ -39,7 +43,7 @@ export class FormComponent implements OnInit {
       });
       this.formService.submit(
         payload,
-        '/auth',
+        this.url,
         this.onError.bind(this),
         this.onSuccess.bind(this)
       );
@@ -59,11 +63,7 @@ export class FormComponent implements OnInit {
           },
         });
       });
-    } else {
-      console.log('show modals');
-      console.log(error);
-    }
-    //Show modal
+    } else this.messageService.open(error.details.message);
   }
 
   onSuccess(response) {

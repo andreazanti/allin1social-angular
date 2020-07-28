@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit, FormComponentInterface {
   }
 
   submit() {
-    console.log('after submit');
     this.router.navigate(['/dashboard']);
   }
 }

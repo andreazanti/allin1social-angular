@@ -4,35 +4,14 @@
   </div>
   <div class="body">
     <div class="inner-body">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-primary" type="button">
-            Username
-          </button>
-        </div>
-        <input
-          class="form-control"
-          type="text"
-          name="username"
-          [(ngModel)]="username"
-        />
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-primary" type="button">
-            Password
-          </button>
-        </div>
-        <input
-          class="form-control"
-          type="password"
-          name="password"
-          [(ngModel)]="password"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary submit" (click)="register()">
-        Submit
-      </button>
+      <app-form
+        [form]="form"
+        [model]="model"
+        [fields]="fields"
+        [submit]="submit.bind(this)"
+        [url]="url"
+      >
+      </app-form>
     </div>
   </div>
   <div class="footer">

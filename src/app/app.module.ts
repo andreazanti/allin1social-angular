@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // ########### PAGES ###############
 import { AuthPageComponent } from './pages/auth/auth-page.component';
@@ -64,6 +64,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     LoaderService,
     MembershipService,
     { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true },
+    NgbActiveModal,
   ],
   bootstrap: [AppComponent],
 })

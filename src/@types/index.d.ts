@@ -1,4 +1,5 @@
 //TODO: declare the correct field for the interface
+
 export interface FormComponentInterface {
   form: import('@angular/forms').FormGroup;
   model: any;

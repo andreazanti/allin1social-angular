@@ -1,13 +1,11 @@
-<ng-template #content let-c="close" let-d="dismiss">
+<div>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">
-      Hey! An error is occurred...
-    </h4>
+    <h4 class="modal-title">Hey! An error is occurred...</h4>
     <button
       type="button"
       class="close"
       aria-label="Close"
-      (click)="d('Cross click')"
+      (click)="activeModal.dismiss('Cross click')"
     >
       <span aria-hidden="true">&times;</span>
     </button>
@@ -19,9 +17,9 @@
     <button
       type="button"
       class="btn btn-outline-dark"
-      (click)="d('Cross click')"
+      (click)="activeModal.close('Close click')"
     >
       Close
     </button>
   </div>
-</ng-template>
+</div>

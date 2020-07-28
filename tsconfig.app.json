@@ -7,5 +7,6 @@
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
+  "exclude": ["src/@types"],
   "include": ["src/**/*.d.ts"]
 }
