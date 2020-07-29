@@ -12,3 +12,7 @@ export interface SubmitData {
   url: string;
   handler: Function;
 }
+//TODO: extend the Http response of angular
+// declare module '@angular/common/http' {
+//   export interface HttpResponse {}
+// }

@@ -6,7 +6,6 @@ export class FormService {
   constructor(private http: HttpClient) {}
 
   submit(payload: any, url: string, onError: Function, onSuccess: Function) {
-    console.log('submit');
     this.http.post(url, payload).subscribe(
       (response) => {
         onSuccess(response);

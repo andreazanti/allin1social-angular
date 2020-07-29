@@ -62,7 +62,10 @@ export class RegisterComponent implements FormComponentInterface {
   ];
 
   submit() {
-    this.membershipService.login(this.username, this.password);
+    this.membershipService.login(
+      this.form.get('username').value,
+      this.form.get('password').value
+    );
     this.router.navigate(['/dashboard']);
   }
 }

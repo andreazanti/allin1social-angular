@@ -34,8 +34,6 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.url);
-    console.log(this.form);
     if (this.form.status === 'VALID') {
       const payload = {};
       Object.keys(this.form.controls).forEach((key, index) => {
@@ -63,7 +61,14 @@ export class FormComponent implements OnInit {
           },
         });
       });
-    } else this.messageService.open(error.details.message);
+    } else {
+      let message = '';
+      if (error.details) {
+        message = error.details.message;
+      } else message = 'UNKNOWN_ERROR';
+
+      this.messageService.open(message);
+    }
   }
 
   onSuccess(response) {
