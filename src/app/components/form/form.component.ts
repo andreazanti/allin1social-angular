@@ -48,11 +48,9 @@ export class FormComponent implements OnInit {
     }
   }
 
-  //TODO: provide a system to map be error with FE
-  //TODO: this error handling needs to be centralized
-  // This needs to be done in all the form
   onError(error) {
-    if (error.type === 'ValidationError') {
+    console.log('handle error of form here ', error);
+    if (error && error.type === 'ValidationError') {
       error.details.forEach((errorDetail) => {
         const message = Object.values(errorDetail.constraints).join('\n');
         this.form.get(errorDetail.property).setErrors({
@@ -61,14 +59,15 @@ export class FormComponent implements OnInit {
           },
         });
       });
-    } else {
-      let message = '';
-      if (error.details) {
-        message = error.details.message;
-      } else message = 'UNKNOWN_ERROR';
-
-      this.messageService.open(message);
     }
+    //  else {
+    //   let message = '';
+    //   if (error.details) {
+    //     message = error.details.message;
+    //   } else message = 'UNKNOWN_ERROR';
+
+    //   this.messageService.open(message);
+    // }
   }
 
   onSuccess(response) {

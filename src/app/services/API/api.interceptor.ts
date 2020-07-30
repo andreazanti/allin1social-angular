@@ -4,9 +4,11 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
+  HttpErrorResponse,
+  HttpResponse,
 } from '@angular/common/http';
-import { Observable, throwError, OperatorFunction } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable, throwError, never } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 
 import { MessageService } from '../../components/message/message.service';
@@ -33,23 +35,30 @@ export class APIInterceptor implements HttpInterceptor {
     // We call finalize only to transform the simple functon into an observable
     // So we can do observable1.pipe(observable2)
 
-    return next.handle(reqClone).pipe(finalize(() => this.loader.hide()));
-    // .pipe(
-    //   //TODO:
-    //   //Handle errors here
-    //   catchError((error: HttpErrorResponse) => {
-    //     let errorMsg = '';
-    //     if (error.error instanceof ErrorEvent) {
-    //       console.log('this is client side error');
-    //       errorMsg = `Error: ${error.error.message}`;
-    //     } else {
-    //       console.log('this is server side error');
-    //       console.log('ERROR', error);
-    //       errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-    //     }
-    //     //TODO: open modal hers
-    //     return throwError(errorMsg);
-    //   })
-    // );
+    return next
+      .handle(reqClone)
+      .pipe(finalize(() => this.loader.hide()))
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // let errorMsg = '';
+          // if (error.error instanceof ErrorEvent) {
+          //   console.log('this is client side error');
+          //   errorMsg = `Error: ${error.error.message}`;
+          // } else {
+
+          // Handle here only generic error
+          if (error.error.type == 'GenericError') {
+            console.log('is generic error');
+            let message = '';
+            if (error.error.details) {
+              message = error.error.details.message;
+            } else message = 'UNKNOWN_ERROR';
+
+            this.messageService.open(message);
+          }
+
+          return throwError(error);
+        })
+      );
   }
 }
